@@ -4,7 +4,7 @@
 
 This repository contains the code and experiments for a defense framework against knowledge poisoning attacks in GraphRAG-style multi-hop QA systems. Our method, HoG-GRAG (Hop-wise Guard for GraphRAG), improves robustness by decomposing multi-hop questions into ordered subqueries, detecting poisoning-induced inconsistencies during hop-wise execution, and repairing corrupted retrieved subgraphs through targeted pruning and minimal evidence recovery.
 
-<img src="figures/overview2.jpg" />
+<img src="Figures/overview.jpg" />
 
 We evaluate this framework on multi-hop question answering using:
 
@@ -23,10 +23,7 @@ This repository is organized around the two core components of Auto-Immune Graph
 
 ```text
 HoG-GRAG/
-│
-├── data/                         
-│   ├── musique/                 
-│   ├── hotpotqa/                 
+│        
 ├── prompts/ 
 │   │   └── Context-Restricted Answering.md
 │   │   └── Question Paraphrasing.md
