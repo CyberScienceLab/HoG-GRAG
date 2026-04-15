@@ -22,7 +22,7 @@ We evaluate this framework on multi-hop question answering using:
 This repository is organized around the two core components of Auto-Immune GraphRAG — detection and repair — with supporting modules for evaluation.
 
 ```text
-AutoImmune-GraphRAG/
+HoG-GRAG/
 │
 ├── data/                         
 │   ├── musique/                 
