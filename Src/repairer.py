@@ -532,7 +532,7 @@ def repair(input_file: str,
         i = i + 1
         print(i)
         qid = row.get("qid")
-        q1, q2 = get_subquestions_hotpot(decomposed_questions_file, qid)
+        q1, q2 = get_subquestions(decomposed_questions_file, qid)
         q_list = [None, q1, q2]  
         ent_file = os.path.join(subgraph_dir, f"q{qid}_entities.parquet")
         rel_file = os.path.join(subgraph_dir, f"q{qid}_relations.parquet")
