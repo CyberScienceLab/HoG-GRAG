@@ -30,7 +30,7 @@ HoG-GRAG/
 ├── src/
 │   ├── detection.py               
 │   ├── repairer.py             
-│   ├── repair_trace_analysis.py               
+│   ├── trace_analysis.py               
 │   ├── evaluation.py
 ├── baselines/
 │   │   └── Query_Paraphrasing.py
