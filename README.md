@@ -2,10 +2,7 @@
 
 ## 🧠 Overview
 
-This repository contains the code and experiments for a defense framework against knowledge poisoning attacks in GraphRAG-style multi-hop QA systems. **Auto-Immune GraphRAG** operates directly on hop-level execution traces over the knowledge graph and introduces a two-stage defense:
-
-1. **Hop-wise poisoning detection**, which flags poisoned questions by identifying structural disruptions in the reasoning chain.
-2. **Structural repair**, which edits the retrieved subgraph by removing suspect entities and relations and, when necessary, injecting minimal additional evidence from the global knowledge graph.
+This repository contains the code and experiments for a defense framework against knowledge poisoning attacks in GraphRAG-style multi-hop QA systems. Our method, HoG-GRAG (Hop-wise Guard for GraphRAG), improves robustness by decomposing multi-hop questions into ordered subqueries, detecting poisoning-induced inconsistencies during hop-wise execution, and repairing corrupted retrieved subgraphs through targeted pruning and minimal evidence recovery.
 
 <img src="figures/overview2.jpg" />
 
@@ -32,12 +29,9 @@ AutoImmune-GraphRAG/
 │   ├── hotpotqa/                 
 ├── prompts/ 
 │   │   └── Context-Restricted Answering.md
-│   │   └── Poison Text Generation.md
 │   │   └── Question Paraphrasing.md
 │   │   └── Response Evaluation.md
 ├── src/
-│   ├── poison_text_generation.py
-│   ├── GraphRAG_response.py     
 │   ├── detection.py               
 │   ├── repairer.py             
 │   ├── repair_trace_analysis.py               
