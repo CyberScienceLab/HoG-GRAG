@@ -25,7 +25,6 @@ This repository is organized around the two core components of Auto-Immune Graph
 HoG-GRAG/
 │        
 ├── prompts/ 
-│   │   └── Context-Restricted Answering.md
 │   │   └── Question Paraphrasing.md
 │   │   └── Response Evaluation.md
 ├── src/
