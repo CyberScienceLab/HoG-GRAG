@@ -45,7 +45,7 @@ def get_subqueries_by_qid(csv_path: str, qid: str):
     return q1, q2
 
 
-def build_context_text(context):
+def build_context(context):
     entity_frames = []
     relation_frames = []
     for item in context:
@@ -76,8 +76,8 @@ def build_context_text(context):
 
 
 def get_answer_subquestion(context, subquestion):
-    context = build_context_text(context)  
-    with open("prompts/response_subquestion-detection.md", "r", encoding="utf-8") as f:
+    context = build_context(context)  
+    with open("get_response.md", "r", encoding="utf-8") as f:
         template = f.read()
     prompt = template.format(
         context=context,
@@ -98,7 +98,7 @@ def detection(QA_file, decomposed_questions_file, output_file):
         qid_raw = row.get("qid")        
         qid = str(qid_raw).strip()
         print(f"Processing QID: {qid}")
-        q1, q2 = get_subqueries_by_qid_hotpot(decomposed_questions_file, qid)
+        q1, q2 = get_subqueries_by_qid(decomposed_questions_file, qid)
         context = [(f"q{qid}_entities.parquet",f"q{qid}_relations.parquet")]
         ans1 = (get_answer_subquestion(context, q1).strip().replace('"', '').replace("'", ''))
         detect_flag = 0
@@ -111,7 +111,6 @@ def detection(QA_file, decomposed_questions_file, output_file):
         else:
             q2_filled = re.sub(r'\[.*?\]', f'[{ans1}]', q2)
             ans2 = (get_answer_subquestion(context, q2_filled).strip().replace('"', '').replace("'", ''))
-            # print(ans2)
             if ans2.upper() == "NA":
                 ans2 = ans2.upper()
                 detect_flag = 21
